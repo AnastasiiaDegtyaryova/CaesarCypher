@@ -25,17 +25,13 @@ public class BruteForcing {
 
     private static boolean isValidDecryption(String text) {
         for (int i = 0; i < text.length() - 2; i++) {
-
             if (text.charAt(i) == '.' && text.charAt(i + 1) == ' ' && Character.isUpperCase(text.charAt(i + 2))) {
                 return true;
-            }
-            else if (text.charAt(i) == ',' && text.charAt(i + 1) == ' ') {
+            } else if (text.charAt(i) == ',' && text.charAt(i + 1) == ' ') {
                 return true;
-            }
-            else if (text.charAt(i) == ',' && Character.isUpperCase(text.charAt(i + 1))) {
+            } else if (text.charAt(i) == ',' && Character.isUpperCase(text.charAt(i + 1))) {
                 return false;
-            }
-            else if ((text.charAt(i) == '.' || text.charAt(i) == ',' || text.charAt(i) == '!' || text.charAt(i) == '?') &&
+            } else if ((text.charAt(i) == '.' || text.charAt(i) == ',' || text.charAt(i) == '!' || text.charAt(i) == '?') &&
                     (text.charAt(i + 1) == '.' || text.charAt(i + 1) == ',' || text.charAt(i + 1) == '!' || text.charAt(i + 1) == '?')) {
                 return false;
             }

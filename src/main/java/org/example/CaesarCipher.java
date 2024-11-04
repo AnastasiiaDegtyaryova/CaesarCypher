@@ -7,7 +7,7 @@ public class CaesarCipher {
 
     public static String processText(String text, int shift, Command command) {
         StringBuilder result = new StringBuilder();
-        Map<Character, Character> cipherMap = AlphabetMap.createAlphabetMap(shift);;
+        Map<Character, Character> cipherMap = AlphabetMap.createAlphabetMap(shift);
 
         switch (command) {
             case ENCRYPT:
@@ -16,7 +16,7 @@ public class CaesarCipher {
                 }
                 break;
             case DECRYPT:
-                Map<Character, Character> decryptMap = createReverseMap(cipherMap);
+                Map<Character, Character> decryptMap = AlphabetMap.createReverseMap(cipherMap);
                 for (char ch : text.toCharArray()) {
                     result.append(decryptMap.getOrDefault(ch, ch));
                 }
@@ -29,14 +29,5 @@ public class CaesarCipher {
         }
 
         return result.toString();
-    }
-
-    private static Map<Character, Character> createReverseMap(Map<Character, Character> originalMap) {
-
-        Map<Character, Character> reverseMap = new HashMap<>();
-        for (Map.Entry<Character, Character> entry : originalMap.entrySet()) {
-            reverseMap.put(entry.getValue(), entry.getKey());
-        }
-        return reverseMap;
     }
 }
